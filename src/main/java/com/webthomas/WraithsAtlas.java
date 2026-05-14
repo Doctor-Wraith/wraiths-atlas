@@ -1,9 +1,10 @@
 package com.webthomas;
 
 import com.webthomas.items.ModItems;
+import com.webthomas.networking.ClientBoundOpenAtlas;
 import net.fabricmc.api.ModInitializer;
-
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
+import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.minecraft.world.item.CreativeModeTabs;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,8 +19,13 @@ public class WraithsAtlas implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+
+		PayloadTypeRegistry.clientboundPlay().register(ClientBoundOpenAtlas.TYPE, ClientBoundOpenAtlas.CODEC);
+
 		ModItems.initialize();
 		CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.TOOLS_AND_UTILITIES)
 				.register((creativeTab) -> creativeTab.accept(ModItems.ATLAS));
+
+
 	}
 }
