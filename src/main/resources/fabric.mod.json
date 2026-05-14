@@ -22,7 +22,8 @@
 			"com.webthomas.client.WraithsAtlasClient"
 		],
 		"fabric-datagen": [
-			"com.webthomas.client.WraithsAtlasDataGenerator"
+			"com.webthomas.client.WraithsAtlasDataGenerator",
+			"com.webthomas.client.datagen.WraithsAtlasDataGenerator"
 		]
 	},
 	"mixins": [
